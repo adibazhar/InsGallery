@@ -200,7 +200,7 @@ public final class PictureSelector {
                 Intent intent = new Intent(getActivity(), PictureVideoPlayActivity.class);
                 intent.putExtra(PictureConfig.EXTRA_VIDEO_PATH, path);
                 intent.putExtra(PictureConfig.EXTRA_PREVIEW_VIDEO, true);
-                getActivity().startActivity(intent);
+             //   getActivity().startActivity(intent);
             } else {
                 throw new NullPointerException("Starting the PictureSelector Activity cannot be empty ");
             }
