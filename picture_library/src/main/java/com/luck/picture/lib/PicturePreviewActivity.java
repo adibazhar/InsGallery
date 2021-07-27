@@ -1,5 +1,6 @@
 package com.luck.picture.lib;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -42,6 +43,7 @@ import java.util.List;
  * @data：2016/1/29 下午21:50
  * @描述:图片预览
  */
+@SuppressLint("StringFormatMatches")
 public class PicturePreviewActivity extends PictureBaseActivity implements
         View.OnClickListener, PictureSimpleFragmentAdapter.OnCallBackActivity {
     private static final String TAG = PicturePreviewActivity.class.getSimpleName();
@@ -589,6 +591,7 @@ public class PicturePreviewActivity extends PictureBaseActivity implements
             onCheckedComplete();
         }
     }
+
 
     protected void onCheckedComplete() {
         if (adapter.getSize() > 0) {

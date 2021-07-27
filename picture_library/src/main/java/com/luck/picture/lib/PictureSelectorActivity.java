@@ -1,6 +1,7 @@
 package com.luck.picture.lib;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
@@ -77,6 +78,7 @@ import java.util.List;
  * @data：2018/1/27 19:12
  * @describe: PictureSelectorActivity
  */
+@SuppressLint("StringFormatMatches")
 public class PictureSelectorActivity extends PictureBaseActivity implements View.OnClickListener,
         OnAlbumItemClickListener, OnPhotoSelectChangedListener<LocalMedia>, OnItemClickListener,
         OnRecyclerViewPreloadMoreListener {
@@ -370,11 +372,11 @@ public class PictureSelectorActivity extends PictureBaseActivity implements View
                 Drawable drawable = ContextCompat.getDrawable(this, config.downResId);
                 mIvArrow.setImageDrawable(drawable);
             }
-            int pictureBottomBgColor = AttrsUtils.
-                    getTypeValueColor(getContext(), R.attr.picture_bottom_bg);
-            if (pictureBottomBgColor != 0) {
-                mBottomLayout.setBackgroundColor(pictureBottomBgColor);
-            }
+//            int pictureBottomBgColor = AttrsUtils.
+//                    getTypeValueColor(getContext(), R.attr.picture_bottom_bg);
+//            if (pictureBottomBgColor != 0) {
+//                mBottomLayout.setBackgroundColor(pictureBottomBgColor);
+//            }
         }
         titleViewBg.setBackgroundColor(colorPrimary);
 
@@ -835,7 +837,7 @@ public class PictureSelectorActivity extends PictureBaseActivity implements View
         } else {
             if (config.selectionMode == PictureConfig.MULTIPLE) {
                 if (PictureMimeType.isHasImage(mimeType) && config.minSelectNum > 0 && size < config.minSelectNum) {
-                    String str = getString(R.string.picture_min_img_num, config.minSelectNum);
+                     String str = getString(R.string.picture_min_img_num, config.minSelectNum);
                     showPromptDialog(str);
                     return;
                 }
@@ -998,7 +1000,7 @@ public class PictureSelectorActivity extends PictureBaseActivity implements View
         if (!isFinishing()) {
             audioDialog = new PictureCustomDialog(getContext(), R.layout.picture_audio_dialog);
             if (audioDialog.getWindow() != null) {
-                audioDialog.getWindow().setWindowAnimations(R.style.Picture_Theme_Dialog_AudioStyle);
+               // audioDialog.getWindow().setWindowAnimations(R.style.Picture_Theme_Dialog_AudioStyle);
             }
             mTvMusicStatus = audioDialog.findViewById(R.id.tv_musicStatus);
             mTvMusicTime = audioDialog.findViewById(R.id.tv_musicTime);
